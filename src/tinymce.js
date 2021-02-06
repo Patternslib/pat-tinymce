@@ -2,13 +2,67 @@ import "regenerator-runtime/runtime"; // needed for ``await`` support
 import Base from "patternslib/src/core/base";
 import Parser from "patternslib/src/core/parser";
 
+const plugin_map = {
+    advlist: { deps: ["lists"] },
+    anchor: {},
+    autolink: {},
+    autoresize: {},
+    autosave: {},
+    bbcode: {},
+    charmap: {},
+    code: {},
+    codesample: {},
+    //colorpicker: {}, // is now in core
+    //contextmenu: {}, // is now in core
+    directionality: {},
+    emoticons: { extra_imports: ["js/emojiimages"] },
+    fullpage: {},
+    fullscreen: {},
+    help: {},
+    hr: {},
+    //"image": {},
+    //"imagetools": {},
+    //"importcss": {},
+    insertdatetime: {},
+    //"legacyoutput": {}, // If included we're in HTML 3 compatibility mode.
+    link: {},
+    lists: {},
+    media: {},
+    nonbreaking: {},
+    noneditable: {},
+    pagebreak: {},
+    paste: {},
+    preview: {},
+    print: {},
+    //"quickbars": {},
+    save: {},
+    searchreplace: {},
+    //"spellchecker": {},
+    tabfocus: {},
+    table: {},
+    //"template": {},
+    //textcolor: {}, // is now in core
+    //"textpattern": {},
+    toc: {},
+    visualblocks: {},
+    visualchars: {},
+    wordcount: {},
+};
+
 const parser = new Parser("tinymce");
 parser.addArgument("inline", false);
 parser.addArgument("content-css", false);
+parser.add_argument(
+    "plugins",
+    Object.keys(plugin_map),
+    Object.keys(plugin_map),
+    true
+);
 
 export default Base.extend({
     name: "tinymce",
     trigger: ".pat-tinymce",
+    plugins: {},
 
     async init() {
         this.options = parser.parse(this.el, this.options);
@@ -43,12 +97,31 @@ export default Base.extend({
             this.el.setAttribute("hidden", "");
         }
 
+        // load plugins
+        for (const plugin of this.options.plugins) {
+            this.plugins[plugin] = await import(`tinymce/plugins/${plugin}`);
+            const plugin_dependencies = plugin_map[plugin].deps || [];
+            for (const dep of plugin_dependencies) {
+                if (!this.options.plugins.includes(dep)) {
+                    // Extend the options with necessary plugin dependencies,
+                    // if they are not yet in.
+                    this.options.plugins.push(dep);
+                }
+            }
+            // Extra imports
+            for (const imp of plugin_map[plugin].extra_imports || []) {
+                // Extra imports need to be relative to the plugin base folder
+                import(`tinymce/plugins/${plugin}/${imp}`);
+            }
+        }
+
         const config = {
             target: el,
             skin: false,
             inline: this.options.inline,
             content_css: this.options.contentCss,
             content_css_cors: content_css_cors,
+            plugins: this.options.plugins.join(" "),
         };
 
         this.tinymce = await TinyMCE.init(config);
