@@ -2,17 +2,40 @@
 
 ## Documentation
 
-This is simple pattern project bootstrap template.
+TinyMCE text editor pattern.
 
-Usage:
-
-    ./create.sh PROJECTNAME
-
-This will create a directory within this directory with the name `pat-PROJECTNAME`.
-You can use it for developing a new pattern.
 
 ### Options reference
 
-| Property       | Default Value | Values | Type              | Description                   |
-| -------------- | ------------- | ------ | ----------------- | ----------------------------- |
-| example_option | [1, 2, 3]     |        | Array of integers | Example configuration option. |
+| Property       | Default Value | Values      | Type    | Description                                                         |
+| -------------- | ------------- | ----------- | ------- | ------------------------------------------------------------------- |
+| inline         | false         | true, false | Boolean | Initializes TinyMCE in iframe mode (default) or inline mode (true). |
+| content-css    | false         | URL         | String  | URL to the css used for the content in TinyMCE. Ignored in inline mode. If not given, uses a default from a cloudflare CDN. |
+
+
+## Examples
+
+### TinyMCE in iframe mode
+
+<textarea class="pat-tinymce" data-pat-tinymce="inline: false">
+this is a non-inline / iframe instance of tinymce.
+</textarea>
+
+```html
+<textarea class="pat-tinymce" data-pat-tinymce="inline: false">
+this is a non-inline / iframe instance of tinymce.
+</textarea>
+```
+
+### TinyMCE in inline mode
+
+<textarea class="pat-tinymce" data-pat-tinymce="inline: true">
+this is a non-inline / iframe instance of tinymce.
+</textarea>
+
+```html
+<textarea class="pat-tinymce" data-pat-tinymce="inline: true">
+this is a non-inline / iframe instance of tinymce.
+</textarea>
+```
+
