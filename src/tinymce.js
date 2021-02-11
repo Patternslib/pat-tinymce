@@ -49,7 +49,7 @@ const plugin_map = {
     wordcount: {},
 };
 
-const parser = new Parser("tinymce");
+export const parser = new Parser("tinymce");
 parser.addArgument("inline", false);
 parser.addArgument("content-css", false);
 parser.add_argument(
@@ -85,15 +85,15 @@ export default Base.extend({
             content_css_cors = true;
         }
 
-        let el = this.el;
+        this.tinyel = this.el;
         if (
             this.options.inline &&
             ["textarea", "input"].includes(this.el.nodeName.toLowerCase())
         ) {
-            el = document.createElement("div");
-            el.setAttribute("contenteditable", "");
-            el.innerHTML = this.el.value;
-            this.el.parentNode.insertBefore(el, this.el);
+            this.tinyel = document.createElement("div");
+            this.tinyel.setAttribute("contenteditable", "");
+            this.tinyel.innerHTML = this.el.value;
+            this.el.parentNode.insertBefore(this.tinyel, this.el);
             this.el.setAttribute("hidden", "");
         }
 
@@ -116,7 +116,7 @@ export default Base.extend({
         }
 
         const config = {
-            target: el,
+            target: this.tinyel,
             skin: false,
             inline: this.options.inline,
             content_css: this.options.contentCss,
@@ -128,15 +128,29 @@ export default Base.extend({
         // apparently it's returning the editor wrapped in a list
         this.tinymce = this.tinymce[0];
 
-        if (el !== this.el) {
+        if (this.tinyel !== this.el) {
             // Update <textarea> or <input>, if one of these were the
             // initializing elements.
             this.tinymce.on("input", () => {
                 //this.el.value = this.tinymce.getContent();
                 // TODO: in inline mode `getContent` and source view seem to be
                 // broken.
-                this.el.value = el.innerHTML;
+                this.el.value = this.tinyel.innerHTML;
             });
+        }
+    },
+
+    destroy() {
+        if (this.tinymce) {
+            if (this.tinyel !== this.el) {
+                // destroy also inline editable
+                // save back first.
+                this.el.value = this.tinyel.innerHTML;
+                this.tinyel.remove();
+                this.el.removeAttribute("hidden");
+            }
+            this.tinymce.destroy();
+            this.tinymce = null;
         }
     },
 });
