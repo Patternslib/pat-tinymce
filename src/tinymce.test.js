@@ -1,6 +1,6 @@
 import "regenerator-runtime/runtime"; // needed for ``await`` support
 import pattern from "./tinymce";
-import utils from "patternslib/src/core/utils";
+import utils from "@patternslib/patternslib/src/core/utils";
 
 describe("pat-tinymce", () => {
     beforeEach(() => {
@@ -21,9 +21,7 @@ describe("pat-tinymce", () => {
 
         // Textarea is hidden
         expect(
-            document
-                .querySelector("textarea.pat-tinymce")
-                .hasAttribute("aria-hidden")
+            document.querySelector("textarea.pat-tinymce").hasAttribute("aria-hidden")
         ).toBeTruthy();
 
         // TinyMCE application wrapper exists

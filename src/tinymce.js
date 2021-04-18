@@ -1,6 +1,6 @@
 import "regenerator-runtime/runtime"; // needed for ``await`` support
-import Base from "patternslib/src/core/base";
-import Parser from "patternslib/src/core/parser";
+import Base from "@patternslib/patternslib/src/core/base";
+import Parser from "@patternslib/patternslib/src/core/parser";
 
 const plugin_map = {
     advlist: { deps: ["lists"] },
@@ -52,12 +52,7 @@ const plugin_map = {
 export const parser = new Parser("tinymce");
 parser.addArgument("inline", false);
 parser.addArgument("content-css", false);
-parser.add_argument(
-    "plugins",
-    Object.keys(plugin_map),
-    Object.keys(plugin_map),
-    true
-);
+parser.add_argument("plugins", Object.keys(plugin_map), Object.keys(plugin_map), true);
 
 export default Base.extend({
     name: "tinymce",
@@ -67,8 +62,7 @@ export default Base.extend({
     async init() {
         this.options = parser.parse(this.el, this.options);
 
-        let TinyMCE = await import("tinymce");
-        TinyMCE = TinyMCE.default;
+        const TinyMCE = (await import("tinymce")).default;
 
         // UI, design, skin
         import("tinymce/icons/default");
