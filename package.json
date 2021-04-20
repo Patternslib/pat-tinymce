@@ -1,6 +1,6 @@
 {
-    "name": "pat-tinymce",
-    "version": "1.0.0",
+    "name": "@patternslib/pat-tinymce",
+    "version": "0.9.0",
     "description": "A pattern for tinymce",
     "license": "MIT",
     "main": "./src/tinymce.js",
