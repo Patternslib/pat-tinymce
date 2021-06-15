@@ -5,7 +5,7 @@
     "license": "MIT",
     "main": "./src/tinymce.js",
     "dependencies": {
-        "@patternslib/patternslib": "4",
+        "@patternslib/patternslib": "^4.4.0",
         "tinymce": "^5.7.1"
     },
     "devDependencies": {
