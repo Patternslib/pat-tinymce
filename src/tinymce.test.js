@@ -7,7 +7,7 @@ describe("pat-tinymce", () => {
         document.body.innerHTML = "";
     });
 
-    it("is initialized correctly", async (done) => {
+    it("is initialized correctly", async () => {
         const text_1 = "<h1>first</h1>";
 
         document.body.innerHTML = `
@@ -29,11 +29,9 @@ describe("pat-tinymce", () => {
 
         // TinyMCE iframe exists
         expect(document.querySelector("iframe")).toBeTruthy();
-
-        done();
     });
 
-    it("Updates the hidden textarea in inline mode", async (done) => {
+    it("Updates the hidden textarea in inline mode", async () => {
         const text_1 = "<h1>first</h1>";
         const text_2 = "<h2>second</h2>";
 
@@ -55,11 +53,9 @@ describe("pat-tinymce", () => {
         await utils.timeout(1);
 
         expect(textarea.value).toBe(text_1 + text_2);
-
-        done();
     });
 
-    it("Updates the hidden textarea in inline mode correctly with multiple instances", async (done) => {
+    it("Updates the hidden textarea in inline mode correctly with multiple instances", async () => {
         const text_1 = "<h1>first</h1>";
         const text_2 = "<h2>second</h2>";
         const text_3 = "<h1>third</h1>";
@@ -98,7 +94,5 @@ describe("pat-tinymce", () => {
 
         expect(textarea_1.value).toBe(text_1 + text_2);
         expect(textarea_2.value).toBe(text_3 + text_4);
-
-        done();
     });
 });
