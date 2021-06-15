@@ -6,7 +6,7 @@
     "main": "./src/tinymce.js",
     "dependencies": {
         "@patternslib/patternslib": "^4.4.0",
-        "tinymce": "^5.7.1"
+        "tinymce": "^5.8.1"
     },
     "devDependencies": {
         "@babel/core": "^7.14.6",
