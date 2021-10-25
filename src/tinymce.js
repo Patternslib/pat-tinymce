@@ -8,7 +8,6 @@ const plugin_map = {
     autolink: {},
     autoresize: {},
     autosave: {},
-    bbcode: {},
     charmap: {},
     code: {},
     codesample: {},
@@ -16,7 +15,6 @@ const plugin_map = {
     //contextmenu: {}, // is now in core
     directionality: {},
     emoticons: { extra_imports: ["js/emojiimages"] },
-    fullpage: {},
     fullscreen: {},
     help: {},
     hr: {},
@@ -43,7 +41,6 @@ const plugin_map = {
     //"template": {},
     //textcolor: {}, // is now in core
     //"textpattern": {},
-    toc: {},
     visualblocks: {},
     visualchars: {},
     wordcount: {},
