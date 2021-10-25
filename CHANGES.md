@@ -1,3 +1,15 @@
+## [1.2.0](https://github.com/patternslib/pat-tinymce/compare/1.1.0...1.2.0) (2021-10-25)
+
+
+### Features
+
+* Upgrade up to minor versions. ([c9ef4e7](https://github.com/patternslib/pat-tinymce/commit/c9ef4e7026a871e2ef1f5a3e00cb421f29175577))
+
+
+### Bug Fixes
+
+* Remove unsupported plugins bbcode, fullpage and toc. ([8e14c6c](https://github.com/patternslib/pat-tinymce/commit/8e14c6c8c2c787f3d130d1cfa779994b340d963d))
+
 ## [1.1.0](https://github.com/patternslib/pat-tinymce/compare/1.0.0...1.1.0) (2021-06-15)
 
 
