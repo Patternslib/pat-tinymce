@@ -1,3 +1,20 @@
+## [2.0.0](https://github.com/patternslib/pat-tinymce/compare/1.2.0...2.0.0) (2021-11-18)
+
+
+### Breaking Changes
+
+* Upgrade to Webpack 5. ([5b646cd](https://github.com/patternslib/pat-tinymce/commit/5b646cd70716378823efc41b61f884dabc572649))
+
+
+
+### Maintenance
+
+* **build:** Extend Patternslib release-it config file. ([3293760](https://github.com/patternslib/pat-tinymce/commit/32937608b5675726169d86c2e6e10fb52ee5daa3))
+
+* **build:** Release on GitHub releases. ([b4c9ffc](https://github.com/patternslib/pat-tinymce/commit/b4c9ffc2bfc52490f8c4173eefb69d5cdc725643))
+
+* **dependencies:** Upgrade TinyMCE to 5.10.2. ([8857efb](https://github.com/patternslib/pat-tinymce/commit/8857efb9cd3f5e3f20ce0259a0d9091d2a41f44d))
+
 ## [1.2.0](https://github.com/patternslib/pat-tinymce/compare/1.1.0...1.2.0) (2021-10-25)
 
 
