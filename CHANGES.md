@@ -1,3 +1,20 @@
+## [2.1.0](https://github.com/patternslib/pat-tinymce/compare/2.0.0...2.1.0) (2022-02-10)
+
+
+### Features
+
+* Use inline mode per default, which renders the editor not in an iframe but in a contenteditable div. The editor picks up all styles from the current page and ensures an better integration into the theme. ([5745bbf](https://github.com/patternslib/pat-tinymce/commit/5745bbfaf3b2120304be6310ddacdc1183113a97))
+
+
+
+### Maintenance
+
+* **Build:** Adapt to Patternslib 6.4.0 changes with single-named bundles. ([ae68168](https://github.com/patternslib/pat-tinymce/commit/ae68168b661a59fd8a7677742b6042ef5af9fa18))
+
+* **Dependencies:** Uprade all dependencies. ([45d7fac](https://github.com/patternslib/pat-tinymce/commit/45d7fac65efc5db707fd6a4c933fcb05148f62cc))
+
+* **webpack:** Configure devServer static directory. ([f2507b0](https://github.com/patternslib/pat-tinymce/commit/f2507b06ca4ccc4edd4c1a233712d5ecaf4e316f))
+
 ## [2.0.0](https://github.com/patternslib/pat-tinymce/compare/1.2.0...2.0.0) (2021-11-18)
 
 
