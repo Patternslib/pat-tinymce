@@ -47,7 +47,7 @@ const plugin_map = {
 };
 
 export const parser = new Parser("tinymce");
-parser.addArgument("inline", false);
+parser.addArgument("inline", true);
 parser.addArgument("content-css", false);
 parser.add_argument("plugins", Object.keys(plugin_map), Object.keys(plugin_map), true);
 
