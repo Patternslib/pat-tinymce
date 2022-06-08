@@ -5,8 +5,10 @@
     "license": "MIT",
     "main": "./src/tinymce.js",
     "dependencies": {
-        "@patternslib/patternslib": "^7.0.1",
         "tinymce": "^5.10.3"
+    },
+    "peerDependencies": {
+        "@patternslib/patternslib": "*"
     },
     "devDependencies": {
         "@babel/core": "^7.17.2",
