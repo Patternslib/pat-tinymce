@@ -1,3 +1,63 @@
+# Changelog
+
+
+
+## [3.0.0-alpha.0](https://github.com/patternslib/pat-tinymce/compare/2.1.0...3.0.0-alpha.0) (2022-06-15)
+
+
+### Features
+
+
+* **Build:** Build module federation enabled bundles. ([15ea018](https://github.com/patternslib/pat-tinymce/commit/15ea018482cf07c0d33a652bc0e34f7ae8fd2c0d))
+
+
+### Breaking Changes
+
+
+* Depend on @patternslib/dev and extend config from there. ([e74ff5e](https://github.com/patternslib/pat-tinymce/commit/e74ff5ed747ce3460411c11cc9a19cf1164d137e))
+
+* Extend babel config from @patternslib/dev. ([7aaf68c](https://github.com/patternslib/pat-tinymce/commit/7aaf68cdbc63d5b0c6a05ee574a15c14abb4d852))
+
+* Extend commitlint config from @patternslib/dev. ([0ec47fc](https://github.com/patternslib/pat-tinymce/commit/0ec47fc6aaad7223e881cf1d6b21e24fefde52fd))
+
+* Extend eslint config from @patternslib/dev. ([1f981e1](https://github.com/patternslib/pat-tinymce/commit/1f981e1993e5aa92ac36d94f6a204e767856edf4))
+
+* Extend jest config from @patternslib/dev. ([397a2f2](https://github.com/patternslib/pat-tinymce/commit/397a2f2f153cb3bc7890885e76472de9cf4156d8))
+
+* Extend Makefile from @patternslib/dev. ([3779ef4](https://github.com/patternslib/pat-tinymce/commit/3779ef4d56503adb075b98a3c34116eee1f5412b))
+
+* Extend prettier config from @patternslib/dev. ([dacc186](https://github.com/patternslib/pat-tinymce/commit/dacc1869d6e2b95f5102bf485363497030feb77c))
+
+* Extend release-it config from @patternslib/dev. ([9a3b001](https://github.com/patternslib/pat-tinymce/commit/9a3b001ef6549e192ff8b0c106a48bad594b4114))
+
+* Extend webpack config from @patternslib/dev. ([4337e7b](https://github.com/patternslib/pat-tinymce/commit/4337e7b03b8fca4103c42ca8baee94cd3f63af1c))
+
+
+### Maintenance
+
+
+* **build:** Add build:dev script to package.json to create a unminified development build. ([80d7518](https://github.com/patternslib/pat-tinymce/commit/80d75189a3d614682c946228c961c416505fb7b2))
+
+* **Build:** @patternslib/patternslib as peerDependency. ([71d9418](https://github.com/patternslib/pat-tinymce/commit/71d9418bf4179f343ecc73be08b8c6c59c4abd41))Move @patternslib/patternslib dependency to peerDependencies and set to any version to avoid version conflicts when this package is a dependency of another Patternslib based package.
+
+* **Build:** Add @patternslib/patternslib also to devDependencies so that we get it installed. ([4f4dab4](https://github.com/patternslib/pat-tinymce/commit/4f4dab4f88eb85e1fbdb4cc61378d5d38555fd1e))
+
+* **Build:** Add keyword "patternslib" to package.json. ([07c1041](https://github.com/patternslib/pat-tinymce/commit/07c10416381a3f2269c41282c696928c1eacbc31))
+
+* **Build:** Extend jest.config.js from Patternslib and reuse their setupTests file too. ([a6344ba](https://github.com/patternslib/pat-tinymce/commit/a6344ba4917d5b6de2502d1dd963275fe8134723))
+
+* **Build:** Keep yarn.lock in repository. ([cdaa519](https://github.com/patternslib/pat-tinymce/commit/cdaa51921e70d0059a7448fca35d333eebd8fe67))
+
+* **Build:** Makefile - Allow OTP when publishing to npm, build bundles and publish them on GitHub, add pre-release targets. ([367b84b](https://github.com/patternslib/pat-tinymce/commit/367b84bdd8c5b29563d921cb892faea4edea03f6))
+
+* **Build:** Remove dependency regenerator-runtime except from test setup. The async/await runtime handling is already built-in in current Babel. ([fe8db45](https://github.com/patternslib/pat-tinymce/commit/fe8db45587c76d8a941317b074a7eb556085a4cd))
+
+* **Build:** Update GitHub actions setup. ([b8344e5](https://github.com/patternslib/pat-tinymce/commit/b8344e5d459405fa5fc0ac0a0a00175db5202567))
+
+* **Build:** Upgrade and cleanup dependencies. ([b87f279](https://github.com/patternslib/pat-tinymce/commit/b87f279b079dec0da7ed4ecae3c81cad73ff5513))
+
+* **Build:** Upgrade tinymce to 5.10.5. ([d5faecc](https://github.com/patternslib/pat-tinymce/commit/d5faecc0cc6e03b5691bd044314a2b09506e4db3))
+
 ## [2.1.0](https://github.com/patternslib/pat-tinymce/compare/2.0.0...2.1.0) (2022-02-10)
 
 
@@ -68,10 +128,7 @@
 * Upgrade to Patternslib v4 final - tinymce customizations. ([49dddaf](https://github.com/patternslib/pat-tinymce/commit/49dddaf6f9e6c3533deee212945e6b65a813f877))
 * Upgrade to Patternslib v4 final. ([070d8ea](https://github.com/patternslib/pat-tinymce/commit/070d8ea9eda7cc1fd8b65c9a37c5f5ffda6d6675))
 
-# Changelog
-
 
 ## 1.0.0 - unreleased
 
 - Initial release.
-
