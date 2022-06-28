@@ -2,6 +2,16 @@
 
 
 
+## [3.0.0](https://github.com/patternslib/pat-tinymce/compare/3.0.0-alpha.0...3.0.0) (2022-06-28)
+
+
+### Maintenance
+
+
+* @patternslib/patternslib needs to be installed. Adding to devDependencies to avoid version clashes with other packages depending on it. ([f24ae0e](https://github.com/patternslib/pat-tinymce/commit/f24ae0ed5b9f2a618283525073bf1b54738255ad))
+
+* Upgrade to @patternslib/dev 2.2.0 and adapt module federation config. ([40ec100](https://github.com/patternslib/pat-tinymce/commit/40ec100251a04d402ae01076f1f85b6a722757db))
+
 ## [3.0.0-alpha.0](https://github.com/patternslib/pat-tinymce/compare/2.1.0...3.0.0-alpha.0) (2022-06-15)
 
 
