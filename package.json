@@ -4,7 +4,7 @@
     "description": "A pattern for tinymce",
     "license": "MIT",
     "main": "./src/tinymce.js",
-    "packageManager": "pnpm@12.16.1",
+    "packageManager": "pnpm@12.18.0",
     "dependencies": {
         "@patternslib/patternslib": "9.11.1",
         "tinymce": "^5.10.5"
