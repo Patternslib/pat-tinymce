@@ -15,8 +15,7 @@ const plugin_map = {
     directionality: {},
     emoticons: { extra_imports: ["js/emojiimages"] },
     fullscreen: {},
-    help: {},
-    hr: {},
+    help: { extra_imports: ["js/i18n/keynav/en"] },
     //"image": {},
     //"imagetools": {},
     //"importcss": {},
@@ -26,16 +25,12 @@ const plugin_map = {
     lists: {},
     media: {},
     nonbreaking: {},
-    noneditable: {},
     pagebreak: {},
-    paste: {},
     preview: {},
-    print: {},
     //"quickbars": {},
     save: {},
     searchreplace: {},
     //"spellchecker": {},
-    tabfocus: {},
     table: {},
     //"template": {},
     //textcolor: {}, // is now in core
@@ -48,6 +43,7 @@ const plugin_map = {
 export const parser = new Parser("tinymce");
 parser.addArgument("inline", true);
 parser.addArgument("content-css", false);
+parser.addArgument("license-key", "gpl");
 parser.add_argument("plugins", Object.keys(plugin_map), Object.keys(plugin_map), true);
 
 export default Base.extend({
@@ -61,17 +57,19 @@ export default Base.extend({
         const TinyMCE = (await import("tinymce")).default;
 
         // UI, design, skin
-        import("tinymce/icons/default");
-        import("tinymce/themes/silver");
-        import("tinymce/skins/ui/oxide/skin.css");
+        await Promise.all([
+            import("tinymce/icons/default"),
+            import("tinymce/themes/silver"),
+            import("tinymce/models/dom"),
+            import("tinymce/skins/ui/oxide/skin.css"),
+        ]);
 
         let content_css_cors = false;
         if (!this.options.inline && !this.options.contentCss) {
             // In <iframe> mode and no content CSS load the default.
             // We're loading from a CDN to have it in reach for TinyMCE as
             // Webpack bundling makes it unavailable otherwise.
-            this.options.contentCss =
-                "https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.6.2/skins/content/default/content.min.css";
+            this.options.contentCss = `https://cdnjs.cloudflare.com/ajax/libs/tinymce/${TinyMCE.majorVersion}.${TinyMCE.minorVersion}/skins/content/default/content.min.css`;
             content_css_cors = true;
         }
 
@@ -101,16 +99,17 @@ export default Base.extend({
             // Extra imports
             for (const imp of plugin_map[plugin].extra_imports || []) {
                 // Extra imports need to be relative to the plugin base folder
-                import(`tinymce/plugins/${plugin}/${imp}`);
+                await import(`tinymce/plugins/${plugin}/${imp}`);
             }
         }
 
         const config = {
             target: this.tinyel,
+            license_key: this.options.licenseKey,
             skin: false,
             inline: this.options.inline,
             content_css: this.options.contentCss,
-            content_css_cors: content_css_cors,
+            crossorigin: () => (content_css_cors ? "anonymous" : undefined),
             plugins: this.options.plugins.join(" "),
         };
 
