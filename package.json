@@ -4,12 +4,13 @@
     "description": "A pattern for tinymce",
     "license": "MIT",
     "main": "./src/tinymce.js",
+    "packageManager": "pnpm@12.18.0",
     "dependencies": {
-        "tinymce": "^5.10.5"
+        "@patternslib/patternslib": "9.11.1",
+        "tinymce": "^8.10.1"
     },
     "devDependencies": {
-        "@patternslib/dev": "^2.2.0",
-        "@patternslib/patternslib": "*"
+        "@patternslib/dev": "^4.4.0"
     },
     "scripts": {
         "start": "NODE_ENV=development webpack serve --config webpack.config.js",

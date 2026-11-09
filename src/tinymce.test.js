@@ -1,7 +1,21 @@
 import pattern from "./tinymce";
 import utils from "@patternslib/patternslib/src/core/utils";
 
+// jsdom does not implement CSS.escape, which TinyMCE uses for schema selectors.
+window.CSS = {
+    ...window.CSS,
+    escape: (value) =>
+        value.replace(
+            /[^a-zA-Z0-9_-]/g,
+            (char) => `\\${char.codePointAt(0).toString(16)} `,
+        ),
+};
+
 describe("pat-tinymce", () => {
+    afterEach(() => {
+        window.tinymce?.remove();
+    });
+
     beforeEach(() => {
         document.body.innerHTML = "";
     });
@@ -20,7 +34,7 @@ describe("pat-tinymce", () => {
 
         // Textarea is hidden
         expect(
-            document.querySelector("textarea.pat-tinymce").hasAttribute("aria-hidden")
+            document.querySelector("textarea.pat-tinymce").hasAttribute("aria-hidden"),
         ).toBeTruthy();
 
         // TinyMCE application wrapper exists
